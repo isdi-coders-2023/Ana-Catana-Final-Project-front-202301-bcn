@@ -1,0 +1,9 @@
+{
+  "short_name": "ana-catana-final-project-front-202301-bcn",
+  "name": "Job applications management app",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
