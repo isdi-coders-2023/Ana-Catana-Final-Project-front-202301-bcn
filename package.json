@@ -49,5 +49,16 @@
     "lint-staged": "^13.1.2",
     "prettier": "^2.8.4",
     "husky": "^8.0.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "src/**/*.tsx",
+      "!src/index.tsx",
+      "!src/reportWebVitals.ts",
+      "!src/store/index.ts",
+      "!src/store/hooks.ts",
+      "!src/store/hooks.ts"
+    ]
   }
 }
