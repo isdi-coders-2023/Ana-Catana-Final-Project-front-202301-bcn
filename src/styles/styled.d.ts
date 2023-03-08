@@ -3,9 +3,10 @@ import "styled-components";
 declare module "styled-components" {
   export interface DefaultTheme {
     color: {
-      primary: string; // verd
+      primary: string;
       secondary: string; // black-grey
       errorColor: string; // red
+      textColor: string;
       inputPlaceholder: string; // C8C9CB
     };
 

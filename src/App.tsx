@@ -1,5 +1,7 @@
+import Button from "./components/Button/Button";
+
 const App = (): JSX.Element => {
-  return <div></div>;
+  return <Button text={"Login"} />;
 };
 
 export default App;

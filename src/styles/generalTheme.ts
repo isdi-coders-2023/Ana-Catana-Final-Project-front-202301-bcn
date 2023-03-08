@@ -2,10 +2,11 @@ import { DefaultTheme } from "styled-components";
 
 const generalTheme: DefaultTheme = {
   color: {
-    primary: "0f4752",
-    secondary: "595959",
-    errorColor: "ff0000",
-    inputPlaceholder: "c8c9cb",
+    primary: "#0F4752",
+    secondary: "#595959",
+    errorColor: "#ff0000",
+    textColor: "#fff",
+    inputPlaceholder: "#c8c9cb",
   },
 
   fontSizes: {
