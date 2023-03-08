@@ -1,6 +1,5 @@
 export interface UserStructure {
   name: string;
-  email: string;
   token: string;
 }
 

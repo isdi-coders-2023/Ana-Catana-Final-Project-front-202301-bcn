@@ -5,7 +5,6 @@ describe("Given a userReducer reducer", () => {
   const initialUserState: UserState = {
     name: "janesmith",
     token: "def456hij789",
-    email: "janesmith@example.com",
     isLogged: false,
   };
 
@@ -13,14 +12,13 @@ describe("Given a userReducer reducer", () => {
     const userToLogin: UserState = {
       name: "janesmith",
       token: "def456hij789",
-      email: "janesmith@example.com",
       isLogged: false,
     };
 
     const userLogged: UserState = {
       name: "janesmith",
       token: "def456hij789",
-      email: "janesmith@example.com",
+
       isLogged: true,
     };
 
