@@ -30,7 +30,7 @@ const GlobalStyles = createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     padding: 0;
     margin: 0;
-    text-shadow: 2px 3px 3px ${(props) => props.theme.color.inputPlaceholder}
+    text-shadow: 2px 3px 3px #c8c9cB
   }
 
   ol, ul, li {
