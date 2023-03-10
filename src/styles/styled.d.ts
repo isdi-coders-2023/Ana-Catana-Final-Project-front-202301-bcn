@@ -7,6 +7,7 @@ declare module "styled-components" {
       secondary: string; // black-grey
       errorColor: string; // red
       textColor: string;
+      titleColor: string;
       inputPlaceholder: string; // C8C9CB
     };
 

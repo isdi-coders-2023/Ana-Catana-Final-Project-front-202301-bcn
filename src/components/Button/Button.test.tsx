@@ -10,7 +10,7 @@ describe("Given Button component", () => {
 
       render(
         <ThemeProvider theme={generalTheme}>
-          <Button text={"Login"} />
+          <Button text={"Login"} type={"button"} />
         </ThemeProvider>
       );
       const expectedButton = screen.getByRole("button", {
