@@ -1,8 +1,9 @@
 import ButtonStyled from "./ButtonStyled";
-import "@fontsource/roboto";
 
 interface ButtonProps {
   text: string;
+  onClickAction?: () => void;
+  type: "submit" | "button";
 }
 
 const Button = ({ text }: ButtonProps): JSX.Element => {

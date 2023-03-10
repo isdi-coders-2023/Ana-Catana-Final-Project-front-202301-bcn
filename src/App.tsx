@@ -1,7 +1,7 @@
-import Button from "./components/Button/Button";
+import LoginForm from "./components/LoginForm/LoginForm";
 
 const App = (): JSX.Element => {
-  return <Button text={"Login"} />;
+  return <LoginForm />;
 };
 
 export default App;
