@@ -1,30 +1,28 @@
-import { UserState } from "../../types/userTypes";
+import { UserState, UserStructure } from "../../types/userTypes";
 import { loginUserActionCreator, userReducer } from "./userSlice";
 
 describe("Given a userReducer reducer", () => {
   const initialUserState: UserState = {
-    name: "janesmith",
-    token: "def456hij789",
+    name: "",
+    token: "",
     isLogged: false,
   };
 
-  describe("When it receives a user with isLogged status set on 'false'", () => {
-    const userToLogin: UserState = {
+  describe("When it receives a user with isLogged status set on 'false' and a loging user action", () => {
+    const userToLogin: UserStructure = {
       name: "janesmith",
       token: "def456hij789",
-      isLogged: false,
     };
 
     const userLogged: UserState = {
       name: "janesmith",
       token: "def456hij789",
-
       isLogged: true,
     };
 
     test("Then it should return a user with isLogged status set on 'true'", () => {
-      const loginUser = loginUserActionCreator(userToLogin);
-      const newLoginUser = userReducer(initialUserState, loginUser);
+      const loginUserAction = loginUserActionCreator(userToLogin);
+      const newLoginUser = userReducer(initialUserState, loginUserAction);
 
       expect(newLoginUser).toStrictEqual(userLogged);
     });
