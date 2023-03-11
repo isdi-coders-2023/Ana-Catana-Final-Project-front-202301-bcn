@@ -1,7 +1,5 @@
-import { render, screen } from "@testing-library/react";
-import { ThemeProvider } from "styled-components";
-import generalTheme from "../../styles/generalTheme";
-import GlobalStyles from "../../styles/GlobalStyles";
+import { screen } from "@testing-library/react";
+import renderWithProviders from "../../testUtils";
 import LoginForm from "./LoginForm";
 
 describe("Given the LogInForm component", () => {
@@ -9,11 +7,7 @@ describe("Given the LogInForm component", () => {
     test("Then it should show an input field with placeholder 'Email'", () => {
       const fieldName = "Email";
 
-      render(
-        <ThemeProvider theme={generalTheme}>
-          <LoginForm />
-        </ThemeProvider>
-      );
+      renderWithProviders(<LoginForm />);
 
       const inputField = screen.getByPlaceholderText(fieldName);
 
@@ -23,12 +17,7 @@ describe("Given the LogInForm component", () => {
     test("Then it should show an input field with placeholder 'password'", () => {
       const placeholderName = "Password";
 
-      render(
-        <ThemeProvider theme={generalTheme}>
-          <GlobalStyles />
-          <LoginForm />
-        </ThemeProvider>
-      );
+      renderWithProviders(<LoginForm />);
 
       const inputField = screen.getByPlaceholderText(placeholderName);
       expect(inputField).toBeInTheDocument();
