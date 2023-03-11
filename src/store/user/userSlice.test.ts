@@ -1,4 +1,4 @@
-import { UserState, UserStructure } from "../../types/userTypes";
+import { UserState } from "../../types/userTypes";
 import { loginUserActionCreator, userReducer } from "./userSlice";
 
 describe("Given a userReducer reducer", () => {
@@ -9,9 +9,10 @@ describe("Given a userReducer reducer", () => {
   };
 
   describe("When it receives a user with isLogged status set on 'false' and a loging user action", () => {
-    const userToLogin: UserStructure = {
+    const userToLogin: UserState = {
       name: "janesmith",
       token: "def456hij789",
+      isLogged: false,
     };
 
     const userLogged: UserState = {

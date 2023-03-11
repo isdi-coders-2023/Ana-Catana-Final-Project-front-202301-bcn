@@ -1,7 +1,7 @@
 import decodeToken from "jwt-decode";
-import { renderHook, act } from "@testing-library/react";
+import { renderHook } from "@testing-library/react";
 import { server } from "../../mocks/server";
-import { UserCredentials, UserStructure } from "../../types/userTypes";
+import { UserCredentials, UserState } from "../../types/userTypes";
 import useUser from "./useUser";
 import { Wrapper } from "../../mocks/Wrapper";
 import { CustomTokenPayload } from "./userTypes";
@@ -51,12 +51,13 @@ describe("Given a useUser custom hook", () => {
         mockedTokenPayload
       );
 
-      const mockedUser: UserStructure = {
+      const mockedUser: UserState = {
         name: "Alina",
         token: mockedToken,
+        isLogged: false,
       };
 
-      await act(async () => loginUser(userCredentials));
+      await loginUser(userCredentials);
 
       expect(mockDispatcher).toHaveBeenCalledWith(
         loginUserActionCreator(mockedUser)

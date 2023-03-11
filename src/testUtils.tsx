@@ -1,6 +1,6 @@
 import { render, RenderOptions } from "@testing-library/react";
 import { PreloadedState, configureStore } from "@reduxjs/toolkit";
-import { RootState, AppStore, store } from "./store";
+import { RootState, AppStore } from "./store";
 import { userReducer } from "./store/user/userSlice";
 import { Provider } from "react-redux";
 import GlobalStyles from "./styles/GlobalStyles";
