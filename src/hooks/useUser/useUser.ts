@@ -9,11 +9,11 @@ import {
 } from "./userTypes";
 
 const useUser = (): UseUserStructure => {
-  const apiUrl = process.env.REACT_APP_API_URL;
+  const apiUrl = process.env.REACT_APP_API_URL!;
   const dispatch = useAppDispatch();
 
   const loginUser = async (userCredentials: UserCredentials) => {
-    const response = await fetch(`${apiUrl}/user/login`, {
+    const response = await fetch(`${apiUrl}/users/login`, {
       method: "POST",
       body: JSON.stringify(userCredentials),
       headers: {

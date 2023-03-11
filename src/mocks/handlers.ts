@@ -1,6 +1,6 @@
 import { rest } from "msw";
 
-const routes = { user: "/user", login: "/login" };
+const routes = { user: "/users", login: "/login" };
 
 const apiUrl = process.env.REACT_APP_API_URL!;
 
