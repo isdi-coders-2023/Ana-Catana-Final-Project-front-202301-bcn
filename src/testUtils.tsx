@@ -1,12 +1,13 @@
 import { render, RenderOptions } from "@testing-library/react";
 import { PreloadedState, configureStore } from "@reduxjs/toolkit";
-import { RootState, AppStore } from "./store";
+import { RootState, AppStore, store } from "./store";
 import { userReducer } from "./store/user/userSlice";
 import { Provider } from "react-redux";
 import GlobalStyles from "./styles/GlobalStyles";
 import generalTheme from "./styles/generalTheme";
 import { ThemeProvider } from "styled-components";
 import { PropsWithChildren } from "react";
+import { uiReducer } from "./store/ui/uiSlice";
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
   preloadedState?: PreloadedState<RootState>;
@@ -18,8 +19,18 @@ const renderWithProviders = (
   {
     preloadedState = {
       user: { name: "", token: "", isLogged: false },
+      ui: {
+        isLoadingVisible: false,
+        feedback: {
+          message: "Hola",
+          isSuccessful: true,
+        },
+      },
     },
-    store = configureStore({ reducer: { user: userReducer }, preloadedState }),
+    store = configureStore({
+      reducer: { user: userReducer, ui: uiReducer },
+      preloadedState,
+    }),
     ...renderOptions
   }: ExtendedRenderOptions = {}
 ) => {
