@@ -6,6 +6,7 @@ import { store } from "./store";
 import generalTheme from "./styles/generalTheme";
 import GlobalStyles from "./styles/GlobalStyles";
 import App from "./App";
+import { BrowserRouter } from "react-router-dom";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
@@ -14,8 +15,10 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider theme={generalTheme}>
-        <GlobalStyles />
-        <App />
+        <BrowserRouter>
+          <GlobalStyles />
+          <App />
+        </BrowserRouter>
       </ThemeProvider>
     </Provider>
   </React.StrictMode>

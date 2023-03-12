@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import LoginPage from "../pages/LoginPage";
 
-const routes = [
+export const routes = [
   {
     path: "/",
     element: <App />,
