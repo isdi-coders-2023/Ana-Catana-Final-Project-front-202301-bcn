@@ -1,8 +1,10 @@
 import { useAppDispatch } from "../../store/hooks";
 import decodeToken from "jwt-decode";
 import {
+  closeLoaderactionCreator,
   hideFeedbackActionCreator,
   showFeedbackActionCreator,
+  showLoaderActionCreator,
 } from "../../store/ui/uiSlice";
 import { loginUserActionCreator } from "../../store/user/userSlice";
 import { UserCredentials } from "../../types/userTypes";
@@ -18,6 +20,8 @@ const useUser = (): UseUserStructure => {
 
   const loginUser = async (userCredentials: UserCredentials) => {
     try {
+      dispatch(showLoaderActionCreator());
+
       dispatch(hideFeedbackActionCreator({ message: "", isSuccessful: false }));
       const response = await fetch(`${apiUrl}/users/login`, {
         method: "POST",
@@ -37,7 +41,11 @@ const useUser = (): UseUserStructure => {
 
       dispatch(loginUserActionCreator({ name, token, isLogged: false }));
       localStorage.setItem("token", token);
+
+      dispatch(closeLoaderactionCreator());
     } catch {
+      dispatch(closeLoaderactionCreator());
+
       dispatch(
         showFeedbackActionCreator({
           message: "Invalid credentials. Please try again.",

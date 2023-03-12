@@ -4,7 +4,7 @@ import LoginPageStyled from "./LoginPageStyled";
 const LoginPage = (): JSX.Element => {
   return (
     <LoginPageStyled>
-      <LoginForm />;
+      <LoginForm />
     </LoginPageStyled>
   );
 };
