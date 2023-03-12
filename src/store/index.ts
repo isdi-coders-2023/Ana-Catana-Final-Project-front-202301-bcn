@@ -5,10 +5,11 @@ import {
   combineReducers,
   PreloadedState,
 } from "@reduxjs/toolkit";
+import { uiReducer } from "./ui/uiSlice";
 import { userReducer } from "./user/userSlice";
 
 export const store = configureStore({
-  reducer: { user: userReducer },
+  reducer: { user: userReducer, ui: uiReducer },
 });
 
 const rootReducer = combineReducers({ user: userReducer });

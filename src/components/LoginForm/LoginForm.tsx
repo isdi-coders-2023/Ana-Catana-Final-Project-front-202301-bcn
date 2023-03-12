@@ -5,8 +5,13 @@ import { ReactComponent as PasswordIcon } from "../../assets/icons/component.svg
 import { SyntheticEvent, useState } from "react";
 import useUser from "../../hooks/useUser/useUser";
 import { UserCredentials } from "../../types/userTypes";
+import { useAppSelector } from "../../store/hooks";
 
 const LoginForm = (): JSX.Element => {
+  const {
+    feedback: { message },
+  } = useAppSelector((state) => state.ui);
+
   const { loginUser } = useUser();
 
   const initialLoginState: UserCredentials = {
@@ -54,7 +59,9 @@ const LoginForm = (): JSX.Element => {
           required
         />
       </label>
-      <span className="login-form__error login-form__error--hidden"></span>
+      <span className="login-form__error login-form__error--hidden">
+        {message}
+      </span>
       <Button text={"Login"} type={"submit"} />
     </LoginFormStyled>
   );
