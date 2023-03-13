@@ -15,6 +15,7 @@ const generalTheme: DefaultTheme = {
     secondarySize: "18px",
     titleSize: "30px",
     buttonTextSize: "20px",
+    logoSize: "25px",
   },
 
   fontStyles: {
