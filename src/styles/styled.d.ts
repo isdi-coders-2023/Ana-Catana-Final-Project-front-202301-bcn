@@ -16,6 +16,7 @@ declare module "styled-components" {
       secondarySize: string; //18
       titleSize: string; //30
       buttonTextSize: string; //20
+      logoSize: string;
     };
 
     fontStyles: {
