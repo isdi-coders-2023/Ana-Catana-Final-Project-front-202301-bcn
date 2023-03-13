@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import LoginPage from "../pages/LoginPage";
+
 import { store } from "../store";
 import generalTheme from "../styles/generalTheme";
 import { routes } from "./router";
@@ -20,7 +20,6 @@ describe("Given a router", () => {
         <Provider store={store}>
           <ThemeProvider theme={generalTheme}>
             <RouterProvider router={router} />
-            <LoginPage />
           </ThemeProvider>
         </Provider>
       );
