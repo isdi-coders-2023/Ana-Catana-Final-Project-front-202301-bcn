@@ -6,6 +6,9 @@ import useUser from "./useUser";
 import { Wrapper } from "../../mocks/Wrapper";
 import { CustomTokenPayload } from "./userTypes";
 import { loginUserActionCreator } from "../../store/user/userSlice";
+import { errorHandler } from "../../mocks/handlers";
+import { act } from "react-dom/test-utils";
+import { showFeedbackActionCreator } from "../../store/ui/uiSlice";
 
 beforeAll(() => {
   jest.clearAllMocks();
@@ -61,6 +64,30 @@ describe("Given a useUser custom hook", () => {
 
       expect(mockDispatcher).toHaveBeenCalledWith(
         loginUserActionCreator(mockedUser)
+      );
+    });
+  });
+
+  describe("When the user submits the form with the wrong credencials", () => {
+    test("Then it should dispatch the action to show feedback", async () => {
+      server.resetHandlers(...errorHandler);
+
+      const {
+        result: {
+          current: { loginUser },
+        },
+      } = renderHook(() => useUser(), { wrapper: Wrapper });
+      (decodeToken as jest.MockedFunction<typeof decodeToken>).mockReturnValue(
+        mockedTokenPayload
+      );
+
+      await act(async () => loginUser(userCredentials));
+
+      expect(mockDispatcher).toHaveBeenCalledWith(
+        showFeedbackActionCreator({
+          message: "Invalid credentials. Please try again.",
+          isSuccessful: false,
+        })
       );
     });
   });
