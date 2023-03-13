@@ -1,9 +1,7 @@
-import Loader from "./components/Loader/Loader";
-import { useAppSelector } from "./store/hooks";
+import Layout from "./components/Layout/Layout";
 
 const App = (): JSX.Element => {
-  const { isLoadingVisible } = useAppSelector((state) => state.ui);
-  return <>{isLoadingVisible && <Loader />}</>;
+  return <Layout />;
 };
 
 export default App;

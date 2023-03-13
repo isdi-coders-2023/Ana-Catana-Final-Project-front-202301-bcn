@@ -5,8 +5,8 @@ import { ThemeProvider } from "styled-components";
 import { store } from "./store";
 import generalTheme from "./styles/generalTheme";
 import GlobalStyles from "./styles/GlobalStyles";
-import App from "./App";
-import { BrowserRouter } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router/router";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
@@ -15,10 +15,8 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider theme={generalTheme}>
-        <BrowserRouter>
-          <GlobalStyles />
-          <App />
-        </BrowserRouter>
+        <GlobalStyles />
+        <RouterProvider router={router} />
       </ThemeProvider>
     </Provider>
   </React.StrictMode>

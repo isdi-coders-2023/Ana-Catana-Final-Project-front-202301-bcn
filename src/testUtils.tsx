@@ -8,6 +8,7 @@ import generalTheme from "./styles/generalTheme";
 import { ThemeProvider } from "styled-components";
 import { PropsWithChildren } from "react";
 import { uiReducer } from "./store/ui/uiSlice";
+import { BrowserRouter } from "react-router-dom";
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
   preloadedState?: PreloadedState<RootState>;
@@ -38,8 +39,10 @@ const renderWithProviders = (
     return (
       <Provider store={store}>
         <ThemeProvider theme={generalTheme}>
-          <GlobalStyles />
-          {children}
+          <BrowserRouter>
+            <GlobalStyles />
+            {children}
+          </BrowserRouter>
         </ThemeProvider>
       </Provider>
     );
